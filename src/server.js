@@ -7,7 +7,7 @@ import { renderToString } from 'react-dom/server'
 
 import OfferStore from '../src/stores/OfferStore';
 import ViewStore from '../src/stores/ViewStore';
-import OfferApp from '../src/components/offerApp.js';
+import OfferApp from '../src/components/adFriendApp.js';
 import React from 'react';
 import * as firebase from 'firebase';
 

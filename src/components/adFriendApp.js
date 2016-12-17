@@ -1,10 +1,9 @@
 import React from 'react';
 import {observer} from 'mobx-react';
 import {Router} from 'director';
-
 import OfferEntry from './offerEntry';
 import OfferOverview from './offerOverview';
-import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from '../constants';
+
 
 import DevTool from 'mobx-react-devtools';
 

@@ -1,7 +1,7 @@
 import 'todomvc-common';
 import OfferStore from './stores/OfferStore';
 import ViewStore from './stores/ViewStore';
-import OfferApp from './components/offerApp.js';
+import OfferApp from './components/adFriendApp.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as firebase from 'firebase';
@@ -17,15 +17,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var database = firebase.database();
-//
-// database.ref('/offers').set({
-// 	username: "harel",
-// 	email: "hare@gg.com",
-// 	profile_picture : "sss"
-// });
-// //end init firebase//
-
 
 const initialState = window.initialState && JSON.parse(window.initialState) || {};
 
@@ -40,8 +31,8 @@ ReactDOM.render(
 );
 
 if (module.hot) {
-  module.hot.accept('./components/offerApp', () => {
-    var NewOfferApp = require('./components/offerApp').default;
+  module.hot.accept('./components/adFriendApp', () => {
+    var NewOfferApp = require('./components/adFriendApp').default;
     ReactDOM.render(
       <NewOfferApp offerStore={offerStore} viewStore={viewStore}/>,
       document.getElementById('offerapp')

@@ -6,28 +6,33 @@ const ESCAPE_KEY = 27;
 const ENTER_KEY = 13;
 
 @observer
-export default class TodoItem extends React.Component {
+export default class OfferItem extends React.Component {
 	@observable editText = "";
 
 	render() {
-		const {viewStore, todo} = this.props;
+		const {viewStore, offer} = this.props;
 		return (
 			<li className={[
-				todo.completed ? "completed": "",
-				expr(() => todo === viewStore.todoBeingEdited ? "editing" : "")
+				offer.completed ? "completed": "",
+				expr(() => offer === viewStore.offerBeingEdited ? "editing" : "")
 			].join(" ")}>
 				<div className="view">
 					<input
 						className="toggle"
 						type="checkbox"
-						checked={todo.completed}
+						checked={offer.completed}
 						onChange={this.handleToggle}
 					/>
 					<label onDoubleClick={this.handleEdit}>
-						{todo.title}
+						{offer.title}
 					</label>
 					<button className="destroy" onClick={this.handleDestroy} />
 				</div>
+
+				<div className="view">
+					<img src={offer.imageUrl}/>
+				</div>
+
 				<input
 					ref="editField"
 					className="edit"
@@ -43,29 +48,29 @@ export default class TodoItem extends React.Component {
 	handleSubmit = (event) => {
 		const val = this.editText.trim();
 		if (val) {
-			this.props.todo.setTitle(val);
+			this.props.offer.setTitle(val);
 			this.editText = val;
 		} else {
 			this.handleDestroy();
 		}
-		this.props.viewStore.todoBeingEdited = null;
+		this.props.viewStore.offerBeingEdited = null;
 	};
 
 	handleDestroy = () => {
-		this.props.todo.destroy();
-		this.props.viewStore.todoBeingEdited = null;
+		this.props.offer.destroy();
+		this.props.viewStore.offerBeingEdited = null;
 	};
 
 	handleEdit = () => {
-		const todo = this.props.todo;
-		this.props.viewStore.todoBeingEdited = todo;
-		this.editText = todo.title;
+		const offer = this.props.offer;
+		this.props.viewStore.offerBeingEdited = offer;
+		this.editText = offer.title;
 	};
 
 	handleKeyDown = (event) => {
 		if (event.which === ESCAPE_KEY) {
-			this.editText = this.props.todo.title;
-			this.props.viewStore.todoBeingEdited = null;
+			this.editText = this.props.offer.title;
+			this.props.viewStore.offerBeingEdited = null;
 		} else if (event.which === ENTER_KEY) {
 			this.handleSubmit(event);
 		}
@@ -76,11 +81,11 @@ export default class TodoItem extends React.Component {
 	};
 
 	handleToggle = () => {
-		this.props.todo.toggle();
+		this.props.offer.toggle();
 	};
 }
 
-TodoItem.propTypes = {
-	todo: React.PropTypes.object.isRequired,
+OfferItem.propTypes = {
+	offer: React.PropTypes.object.isRequired,
 	viewStore: React.PropTypes.object.isRequired
 };

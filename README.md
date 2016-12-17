@@ -1,6 +1,6 @@
-# React + MobX TodoMVC Example
+# React + MobX OfferMVC Example
 
-This repository provides a reference implementation of the [TodoMVC](http://todomvc.com) application written using [MobX](https://github.com/mobxjs/mobx), [React](https://facebook.github.io/react) JSX and ES6.
+This repository provides a reference implementation of the [OfferMVC](http://offermvc.com) application written using [MobX](https://github.com/mobxjs/mobx), [React](https://facebook.github.io/react) JSX and ES6.
 
 ## Running the example
 
@@ -12,13 +12,13 @@ open http://localhost:3000
 
 The example requires node 4.0 or higher
 
-![TodoMVC](devtools.gif)
+![OfferMVC](devtools.gif)
 
 ## Changing the example
 
 If you are new to MobX, take a look at the [five minute, interactive introduction](https://mobxjs.github.io/mobx/getting-started.html) to MobX and React. MobX provides a refreshing way to manage your app state by combining mutable data structures with transparent reactive programming.
 
-The state and actions of this app are defined in two stores; `todoModel` and `viewModel`.
+The state and actions of this app are defined in two stores; `offerModel` and `viewModel`.
 This is not necessary but it provides a nice separation of concerns between data that effects the domain of the application and data that affects the user interface of the application.
 This is a useful distinction for testing, reuse in backend services etc.
 

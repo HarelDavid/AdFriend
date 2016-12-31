@@ -43,7 +43,6 @@ const renderFullPage = html => {
 	<!doctype html>
 	<html lang="utf-8">
 		<head>
-		<link href="/src/styles/general.css"/>
 			<script>
 				window.initialState = ${initialStateJSON}
 			</script>

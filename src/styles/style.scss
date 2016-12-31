@@ -1,7 +1,46 @@
+@import "./variables";
+@import "./mixins";
+@import "./fonts";
+@import "./normalize";
 
-.main-content {
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+body,html {
+  font-size: $base-font-size;
+  font-family: $font-body;
+  margin: 0;
+  padding: 0;
+  background: $grey-bg;
+}
+
+.app-wrapper {
   display: flex;
+
+  .main-content {
+    padding: 10px 20px;
+  }
+
   .side-menu {
-    width: 300px;
+    background-color: $secondary;
+
+    ul { list-style-type: none;
+      width: 260px;
+      padding: 0;
+      li {
+
+        a{
+          padding: 10px 20px;
+          display: block;
+          @include font-size(20px);
+          color: $grey-super-light;
+          text-decoration: none;
+        }
+      }
+    }
   }
 }

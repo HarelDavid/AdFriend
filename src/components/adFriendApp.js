@@ -14,17 +14,17 @@ export default class OfferApp extends React.Component {
 	render() {
 		const {offerStore, viewStore} = this.props;
 		return (
-			<div className="main-content">
+			<div className="app-wrapper">
 				<div className="side-menu">
 					<div className="user-image"></div>
 					<ul>
-						<li>Offers</li>
-						<li>Clients</li>
-						<li>Reports</li>
+						<li><a href="">Offers</a></li>
+						<li><a href="">Clients</a></li>
+						<li><a href="">Reports</a></li>
 
 					</ul>
 				</div>
-			<div className="Offers">
+			<div className="main-content Offers">
 				<DevTool />
 				<div className="Offers-top">
 					<h1>offers</h1>

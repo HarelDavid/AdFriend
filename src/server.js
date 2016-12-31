@@ -21,7 +21,7 @@ const config = require('../webpack.config');
 const compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
 app.use(webpackHotMiddleware(compiler));
-
+process.env.BROWSER = false;
 
 var configFirebase = {
 	apiKey: "AIzaSyDieUaSUVR8dTDTsWb-UVkCXzkAn04G9KE",
@@ -43,8 +43,7 @@ const renderFullPage = html => {
 	<!doctype html>
 	<html lang="utf-8">
 		<head>
-			<link rel="stylesheet" href="/node_modules/offermvc-common/base.css">
-			<link rel="stylesheet" href="/node_modules/offermvc-app-css/index.css">
+		<link href="/src/styles/general.css"/>
 			<script>
 				window.initialState = ${initialStateJSON}
 			</script>
@@ -121,6 +120,6 @@ process.on('uncaughtException', evt => {
 	console.log('uncaughtException: ', evt);
 });
 
-app.listen(3000, function(){
-	console.log('Listening on port 3000');
+app.listen(8080, function(){
+	console.log('Listening on port 8080');
 });

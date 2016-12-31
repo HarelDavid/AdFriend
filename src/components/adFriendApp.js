@@ -7,21 +7,38 @@ import OfferOverview from './offerOverview';
 
 import DevTool from 'mobx-react-devtools';
 
+require('../styles/style.scss');
+
 @observer
 export default class OfferApp extends React.Component {
 	render() {
 		const {offerStore, viewStore} = this.props;
 		return (
-			<div>
+			<div className="main-content">
+				<div className="side-menu">
+					<div className="user-image"></div>
+					<ul>
+						<li>Offers</li>
+						<li>Clients</li>
+						<li>Reports</li>
+
+					</ul>
+				</div>
+			<div className="Offers">
 				<DevTool />
-				<header className="header">
+				<div className="Offers-top">
 					<h1>offers</h1>
 					<OfferEntry offerStore={offerStore} />
-				</header>
-				<OfferOverview offerStore={offerStore} viewStore={viewStore} />
+				</div>
+				<div className="Offers-list">
+					<OfferOverview offerStore={offerStore} viewStore={viewStore} />
+
+				</div>
 
 			</div>
-		);
+			</div>
+
+        );
 	}
 
 }

@@ -75,6 +75,7 @@ export default class OfferStore {
 
 	static fromJS(array) {
 		const offerStore = new OfferStore();
+		console.log("array",array)
 		offerStore.offers = array.map(item => OfferModel.fromJS(offerStore, item));
 		return offerStore;
 	}

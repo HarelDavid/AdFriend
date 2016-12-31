@@ -71,14 +71,13 @@ app.get('/', function(req, res) {
 	var query = firebase.database().ref('/offers');
 
 	query.on('value', (snap) => {
+		offers = [];
 		snap.forEach((child) => {
 			var item = {};
-			console.log(child.key)
 			item = child.val();
 			item.key = child.key;
 			offers.push(item);
 		})
-
 
 		const offerStore = OfferStore.fromJS(offers);
 		const viewStore = new ViewStore();

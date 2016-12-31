@@ -40,7 +40,9 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
-      'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) },
+      'process.env': {
+          BROWSER: JSON.stringify(true),
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV) },
       __CLIENT__: JSON.stringify(true),
       __SERVER__: JSON.stringify(false),
     })

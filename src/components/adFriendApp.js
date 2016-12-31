@@ -6,8 +6,9 @@ import OfferOverview from './offerOverview';
 
 
 import DevTool from 'mobx-react-devtools';
-
-require('../styles/style.scss');
+if (process.env.BROWSER) {
+	require('../styles/style.scss');
+}
 
 @observer
 export default class OfferApp extends React.Component {
